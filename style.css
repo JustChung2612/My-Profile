@@ -5,8 +5,8 @@ html {scroll-behavior: smooth;}
 * { 
     padding: 0;  margin: 0;  box-sizing: border-box;  font-family: "Roboto", sans-serif;  
     color: #fff;
-    --main-color: rgb(24, 79, 64) ;
-    --title-color: rgba(93, 29, 1) ;
+    --main-color: #224505 ;
+    --title-color: rgba(88, 67, 36) ;
     --title-font: "PT Serif", serif;
     --color: #fff;
     --background: rgba(244, 245, 241,0.3);
@@ -131,9 +131,13 @@ ul { list-style-type: none; }
 }
 
 .title-info-user { text-align: center;}
-.info-user h2 , .info-user h3 {animation: title 4s linear infinite;}
-.info-user h3 { font-size: 20px; animation-delay: 1s; }
-.info-user h2 { font-size: 25px; animation-delay: 3s; }
+:is(.info-user) :is(h2,h3) {
+    animation: title 4s linear infinite; 
+    font-family: var(--title-font); 
+    color: var(--title-color) 
+}
+.info-user h3 { font-size: 1vw; animation-delay: 1s; }
+.info-user h2 { font-size: 1.2vw; animation-delay: 3s; }
 
 @keyframes title { 
     50% {transform: perspective(1000px) rotateX(20deg) rotateY(30deg)  ;}
