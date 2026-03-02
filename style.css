@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {scroll-behavior: smooth;}
+
+* { 
+    padding: 0;  margin: 0;  box-sizing: border-box;  font-family: "Roboto", sans-serif;  
+    color: #fff;
+    --main-color: rgb(24, 79, 64) ;
+    --title-color: rgba(93, 29, 1) ;
+    --title-font: "PT Serif", serif;
+    --color: #fff;
+    --background: rgba(244, 245, 241,0.3);
+}
+
+.fa-solid { color: var(--main-color) }
+
+.background {    
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%; height:100%; 
+}
+
+
+.container {
+    /* border: 1px solid #004b3d; */
+    margin: 5rem auto; padding: 20px;
+    width: min(100%, 1500px);
+    min-height: 100vh;
+    display: grid; 
+    justify-content: center;
+    grid-template-columns: min(100%, 30rem ) 1fr ;
+    gap: 10px;
+}
+
+/* .container > section {  border: 1px solid #ff6d29 ;} */
+
+.left , .right {
+    height: fit-content;
+}
+
+/* ///////////////////// LEFT SECTION ///////////////////// */
+.left {
+    display: grid; 
+    grid-template-columns: min(100%, 80px) 1fr ;
+    gap: 10px;
+    position: sticky;
+    top:20px;
+}
+
+ul { list-style-type: none; }
+
+/* ----- MENU PART ----- */
+
+/* .menu {  border: 1px solid #ecffb6 ;} */
+
+.ul-menu {
+    /* border: 1px solid #1b7fdc; */
+    border-radius:100px;
+    display: flex ; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2rem;
+    padding: 10px;
+    min-height: 350px;
+}
+
+.ul-menu li {
+    background: var(--background);
+    backdrop-filter: blur(10px); 
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.5em ;
+    box-shadow: rgba(227, 226, 226, 0.35) 0px 5px 15px;
+    transition: all 0.3s linear;
+}
+
+.ul-menu li::before {
+    transition: all 0.3s linear;
+    position: absolute; right:60px; 
+    font-size: 1rem;
+    content: var(--title);
+    opacity: 0;
+    width: 85px;
+    text-align: center;
+}
+
+.ul-menu li:hover { border-radius: 10px; background-color: var(--main-color) ;}
+.ul-menu li:hover i {color: #fff;}
+.ul-menu li:hover::before { opacity: 1; background: var(--main-color) ; padding: 5px; border-radius: 10px; }
+
+/* ----- USER PART ----- */
+.user {
+    background: var(--background);
+    backdrop-filter: blur(10px); 
+    border-radius: 20px;
+    min-height:  550px ;
+    width: 100%;
+    position: relative;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 10px;
+}
+
+.avatar-container {
+    /* border: 1px solid coral; */
+    border-radius: 20px;
+    width: 100%; 
+    overflow: hidden;
+}
+
+#avatar {
+     border-radius: 20px;
+    width: 100%; 
+    height: 400px;
+    object-fit: cover;
+}
+
+.info-user {
+    border-radius: 20px;
+    padding: 15px;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 20px ; 
+    width: 95%; 
+    z-index: -1;
+    backdrop-filter: blur(2px);
+    
+}
+
+.title-info-user { text-align: center;}
+.info-user h2 , .info-user h3 {animation: title 4s linear infinite;}
+.info-user h3 { font-size: 20px; animation-delay: 1s; }
+.info-user h2 { font-size: 25px; animation-delay: 3s; }
+
+@keyframes title { 
+    50% {transform: perspective(1000px) rotateX(20deg) rotateY(30deg)  ;}
+    100% {transform: perspective(1000px) rotateX(10deg) rotateY(10deg)  ;}
+}
+
+.link-info-user a {
+    text-decoration: none;
+    background: var(--background);
+    backdrop-filter: blur(10px); 
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 20px; font-weight: 600;
+    color: var(--main-color) ;
+    transition: all 0.3s linear;
+    margin-left: 5px;
+}
+.link-info-user a:hover  { background: var(--main-color) ; color: #fff }
+.link-info-user a:hover i { color: #fff }
+
+/* ----- SOCIAL PART ----- */
+.social {
+    grid-column: 2/3 ;
+    display: flex; justify-content: center; gap: 2rem;
+}
+
+.social li {
+    background: var(--background); 
+    backdrop-filter: blur(10px);
+    transition: all 0.3s linear;
+    position: relative;
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 2rem;   
+}
+
+.social li i {  transition: all 0.3s linear;  color: var(--main-color) ; }
+
+.social li::after {
+    transition: all 0.3s linear;
+    opacity: 0;
+    position:absolute;
+    padding: 5px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    content: var(--title) ;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.social li:hover::after { opacity: 1;}
+.social li:hover { background-color: var(--main-color) ;  }
+.social li:hover i { color: var(--color); }
+
+
+/* ///////////////////// RIGHT SECTION ///////////////////// */
+
+/* --------- Section have same propety --------- */
+.right-sec  { 
+    /* border: 2px solid #ecffb6 ;  */
+    margin-bottom: 10px; 
+}
+
+.r-sec-header , 
+.r-sec-content {
+    border-radius: 20px;
+    padding: 10px;
+    color: var(--main-color) ;
+    background: var(--background);
+    backdrop-filter: blur(20px);
+}
+
+.r-sec-header {  margin-bottom: 10px; padding: 10px;  width: 50%;  text-align: center;}
+
+/* ========== 1 - About Me Section ========== */
+.about_me .r-sec-content { display: grid; gap: 20px; }
+
+:is(.about_me .r-sec-content) :is(.name, .role) , .name span  {
+     font-family: var(--title-font) ;
+}
+.about_me .r-sec-content .name { font-size: 2vw; color: var(--title-color) ;  }
+
+.about_me .r-sec-content .role { 
+    font-size: 4.5vw; 
+    color: var(--title-color) ;   
+    position: relative;
+    /* border: 2px solid black; */
+}
+
+.about_me .brief { 
+    display: flex; justify-content: center; align-items: center; gap: 20px; 
+    text-align: center; 
+}
+
+.about_me :is(.brief) :is(h2,div) { width: 45%;}
+
+.about_me :is(.brief) :is(h2,div p) {
+    padding: 20px; 
+    border-radius: 20px;
+}
+
+.about_me  .brief div p { margin-bottom: 15px; font-size: 16px; }
+.about_me  .brief h2 { font-size: 40px; }
+
+.about_me .r-sec-content .person-info-container .person_info {
+    display: grid; grid-template-columns: 50% 50%;  justify-self: center ;   }
+
+.about_me .r-sec-content .person-info-container h3 {
+    font-size: 30px; margin: 0 0 10px 0;
+}
+
+.about_me .r-sec-content .person-info-container .person_info li {
+    font-size: 19px;
+    line-height: 1.4;
+    width: 85%;
+    margin: 10px;
+}
+
+/* ========== 2 - My Skills Section ========== */
+#skill-box-container-content {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    display: grid; 
+    gap: 4rem; 
+    justify-content: center ; justify-items: center; 
+    align-content: center; align-items: center;
+    grid-template-columns: repeat(auto-fit,  min(100%, 100px));
+     
+}
+.skill-box {
+    position: relative; display: flex; justify-content: center; align-items: center;
+    border-radius: 20px;
+    width: 100%;
+    min-height: 100px ;
+    background-color: rgb(73, 72, 68) ;
+    transition: 0.3s linear all;
+    transform: perspective(1000px) rotateX(-20deg) rotateY(30deg)  ;
+    box-shadow: rgba(73, 72, 68, 0.4) -5px 5px, rgba(73, 72, 68, 0.3) -10px 10px, rgba(73, 72, 68, 0.2) -15px 15px, rgba(73, 72, 68, 0.1) -20px 20px, rgba(73, 72, 68, 0.05) -25px 25px;
+}
+
+.skill-box:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg)  ;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px, rgba(255, 255, 255, 0.12) 0px -12px 30px, rgba(255, 255, 255, 0.12) 0px 4px 6px, rgba(255, 255, 255, 0.17) 0px 12px 13px, rgba(255, 255, 255, 0.09) 0px -3px 5px;
+}
+
+.skill-box img {
+    background-color: rgb(73, 72, 68) ;
+    width: 70%; height: 70%; object-fit: cover;
+}
+
+.skill-box p {
+    position: absolute;
+    top:90%; left: 5%;
+    background-color: #fff;
+    font-size: 1rem ; font-weight: 600; width: 90%; padding: 5px; border-radius: 10px;
+    color: var(--main-color) ;
+    text-align: center;
+}
+
+/* ========== 3 - My Projects Section ========== */
+#project-box-container-content {
+     margin-top: 20px;
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+}
+
+.r-sec-content h3 {
+    margin-bottom: 20px;
+}
+
+.project-box {
+    background: var(--background);
+    backdrop-filter: blur(10px); 
+    background-color: rgb(73, 72, 68) ;
+    border-radius: 20px;
+    padding: 10px;
+    width: min(100%, 420px);
+    height: 320px;
+    transition: all 0.4s linear;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+
+.project-box:hover{
+    height: 490px;
+}
+
+
+.project-box img {
+    transition: all 0.3s linear;
+    padding-top: 5px;
+    border-radius: 20px;
+    width: 95%;
+    height: min(100%, 220px);
+    object-fit: cover;   
+}
+
+.project-box .project-info h3 {
+    font-size: 15px; margin: 0 0 10px 15px;
+}
+.project-box .project-info button  {
+    background: var(--background);
+    backdrop-filter: blur(10px); 
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px; font-weight: 600;
+    color: var(--main-color) ;
+    transition: all 0.3s linear;
+    margin: 0 0 10px 15px;
+}
+.project-info #project-desc {
+    line-height: 1.2; margin: 0 0 15px 15px;
+}
+.project-box .project-info button:hover { 
+    border-radius: 10px; background-color: var(--main-color) ; color: var(--color)
+}
+
+.project-box::before {
+    font-size: 15px;
+    position: absolute;
+    bottom: 10px; right:10px;
+    content: "Hover me!"; font-weight: 600;
+}
+
+/* ========== 4 - My Contact Section ========== */
+.contact-content .social li {
+    border-radius: 10px;
+    padding: 20px ;
+    font-size: 3rem;
+}
