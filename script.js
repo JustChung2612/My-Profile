@@ -35,5 +35,17 @@ if ( tech_icon.length == tech_name.length ) {
         </div>
         `
     }
-
 }
+
+function reveal_Text_Effect() {
+    const role = "Fresher Fullstack Developer";
+    const h1 = document.querySelector(".r-sec-content .role");
+
+    h1.innerHTML ="";
+    
+    for (let i = 0; i < role.length ; i++ ) {
+        h1.innerHTML += `<span style="animation-delay:${i * 0.1}s" >${role[i]}</span>`
+    }
+}
+
+reveal_Text_Effect()
