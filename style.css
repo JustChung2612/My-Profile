@@ -5,7 +5,7 @@ html {scroll-behavior: smooth;}
 * { 
     padding: 0;  margin: 0;  box-sizing: border-box;  font-family: "Roboto", sans-serif;  
     color: #fff;
-    --main-color: #224505 ;
+    --main-color: #00524d ;
     --title-color: rgba(88, 67, 36) ;
     --title-font: "PT Serif", serif;
     --color: #fff;
@@ -372,6 +372,8 @@ ul { list-style-type: none; }
 .project-box .project-info button:hover { 
     border-radius: 10px; background-color: var(--main-color) ; color: var(--color)
 }
+
+.project-box .project-info button a { text-decoration: none; }
 
 .project-box::before {
     font-size: 15px;
